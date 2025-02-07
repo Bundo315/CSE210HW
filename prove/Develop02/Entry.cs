@@ -25,14 +25,13 @@ public class Entry
         };
 
         Random rand = new Random();
-        int randomIndex = rand.Next(prompts.Count);
-        _prompt = prompts[randomIndex];
+        int random = rand.Next(prompts.Count);
+        _prompt = prompts[random];
         Console.WriteLine(_prompt);
     }
 
     public void GetResponse()
     {
-        Console.Write("> ");
         _response = Console.ReadLine();
     }
 }

@@ -1,69 +1,62 @@
 using System;
-
-/* Exceeding requirements 
-Attempted to Improve the process of saving and loading to 
-save as a .csv file that could be opened in Excel (make sure to 
-account for quotation marks and commas correctly in your 
- content.
- */
-
-
 class Program
 {
     static void Main(string[] args)
     {
-        // Console.WriteLine("Hello Develop02 World!");
-        Journal journal = new Journal();
-        Console.WriteLine("Welcome to the Journal Program!");
 
-        bool running = true;
-        while (running)
+        Journal journal = new Journal();
+        Console.WriteLine("Welcome to the program ");
+
+        int x = 0;
+        while (x != 1)
         {
+            //choices
             Console.WriteLine("Please select one of the following choices: ");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            Console.Write("What would you like to do? ");
+            Console.Write("Please choose one of the options: ");
             int choice = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
             switch (choice)
             {   
-                //Write
+                //Write a new entry into the journal
                 case 1:
                     journal.NewEntry();
                     Console.WriteLine();
                     break;
-                //Display
+                //Display the journal
                 case 2:
                     journal.DisplayEntries();
                     Console.WriteLine();
                     break;
-                //Load
+                //Load the file where the journal is saved
                 case 3:
                     Console.Write("Enter the file name you want to load: ");
                     string loadFileName = Console.ReadLine();
                     journal.LoadEntries(loadFileName);
                     Console.WriteLine();
                     break;
-                //Save
+                //Save the journal to a csv file
                 case 4:
                     Console.Write("Enter the file name you want to save: ");
                     string saveFileName = Console.ReadLine();
                     journal.SaveEntries(saveFileName);
-                    Console.WriteLine("Saved!");
+                    Console.WriteLine("Successfully saved");
                     Console.WriteLine();
                     break;
-                //Quit
+                //Quit the program
                 case 5:
-                    running = false;
-                    Console.WriteLine("Thank you. Have a nice day!");
+                    x = 1;
+                    Console.WriteLine("Exited the program.");
                     Console.WriteLine();
                     break;
+                //Entered a invalid choice
                 default:
-                    Console.WriteLine("Invalid input. Please choose one of the following choices.");
+                    Console.WriteLine("Invalid input. Please choose a integer between 1 and 5.");
                     break;
             }
         }
